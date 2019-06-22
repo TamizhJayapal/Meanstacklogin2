@@ -1,0 +1,49 @@
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #777;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: bold;
+    color: #555;
+}
+
+h3 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    }
+
+p{
+    font-weight: 500;
+}
+
+#profile img{
+    margin-top: -55px;
+    border: 1px solid #555;
+}
+
+#profile .card {
+    border-radius:0;
+    box-shadow: 5px 5px 15px #f87a03;
+    transition: all 0.3s ease-in;
+}
+
+#profile .card:hover{
+    border-radius:5px;
+    box-shadow: 5px 5px 10px #5E5E5E;
+    background: #dd834f;
+    color: #fff;
+    border:none;
+}
+#details {
+    color: #dd834f;
+    font-weight: 500;
+}
+#profile .card:hover #details{
+    color: #555;
+}
