@@ -14,9 +14,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   registerUser(user) {
-      this.userservice.registerUser(user).subscribe((res) => {
+      this.userservice.registerUser(user).subscribe((res: any) => {
         if (res) {
-          this.router.navigate(['/login']);
+            if (res.token) {
+              localStorage.setItem('eduToken', res.token);
+            }
+            this.router.navigate(['/login']);
            }
       });
   }

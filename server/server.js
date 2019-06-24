@@ -27,7 +27,9 @@ app.post('/register', (req,res)=>{
     userdata.save().then((x)=>{
         let payload = { subject : x._id }
         let token = jwt.sign(payload, 'abc123');
-        res.send(x);
+        res.send({
+            token: token
+        });
     }).catch((token)=>{
         res.status(400).send(e);
     })
