@@ -8,4 +8,10 @@ export class AppComponent implements OnInit {
   constructor() {}
   title = 'EduOrg';
   ngOnInit() {  }
+
+  logout() {
+    localStorage.removeItem('eduToken');
+    location.reload();
+  }
+
 }

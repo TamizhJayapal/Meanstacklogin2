@@ -8,7 +8,7 @@
     <div class="card-body">
       <form #userForm = "ngForm" (ngSubmit)="loginUser(userForm.value);">
           <div class="form-group">
-              <label for="email">Emssail</label>
+              <label for="email">Email</label>
               <input required ngModel type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" #email="ngModel" name="email" class="form-control">
               <div  *ngIf = "email.touched && email.errors?.required; then req else patern "> </div>
               <ng-template #req>

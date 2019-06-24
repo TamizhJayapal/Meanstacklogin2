@@ -12,9 +12,9 @@ export class TutoappComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout(){
+/*   logout() {
     localStorage.removeItem('eduToken');
     location.reload();
-  }
+  } */
 
 }
