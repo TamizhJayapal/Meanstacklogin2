@@ -1,21 +1,16 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const bcrypt = require('bcryptjs');
 
+const mongoose = require('./mongodb/mongoose');
 const user = require('./model/user');
 
-var cors = require('cors')
-
-
 const port = process.env.PORT ? process.env.PORT : 3000;
-const db = 'mongodb://localhost:27017/mean';
-mongoose.connect(db, {useNewUrlParser: true});
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 
 app.post('/register', (req,res)=>{    
     var newUser = {
@@ -24,15 +19,12 @@ app.post('/register', (req,res)=>{
         password:req.body.userPass
     }
     var userdata = new user(newUser);
-    userdata.save().then((x)=>{
-        let payload = { subject : x._id }
-        let token = jwt.sign(payload, 'abc123');
-        res.send(x);
-    }).catch((token)=>{
-        res.status(400).send(e);
+    userdata.saveWithToken().then((x)=>{       
+            res.send({token: x.tokens});
+        }).catch((e)=>{
+            res.status(400).send(e);
     })
-});
-
+}); 
 
 app.post('/login', (req,res)=>{
     let userData = req.body;
@@ -41,16 +33,11 @@ app.post('/login', (req,res)=>{
           return res.status(401).send('Email does not exist');
         }
         bcrypt.compare(req.body.password, user.password).then(function(data) {            
-            if(data){
-                 var subject = {
-                     _id:user._id
-                 }
-                 var token = jwt.sign(subject, "abc123");                 
-                 user.token = token;
-                 res.header("x-auth",token).send({
+            if(data){                             
+                 res.header("x-auth", user.tokens.token).send({
                      email:user.email,
                      name: user.name,
-                     token:user.token
+                     token:user.tokens.token
                  });
             }else {
                  res.status(401).send('Invalid password');
@@ -59,6 +46,6 @@ app.post('/login', (req,res)=>{
     });
 });
 
-app.listen(3000, ()=>{
-    console.log('server is running on 3000');
+app.listen(port, ()=>{
+    console.log('server is running on port', port);
 });

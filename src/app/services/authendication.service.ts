@@ -7,13 +7,17 @@ export class AuthendicationService {
 
   constructor() { }
   currentUserValue(): boolean {
-        var access;
-        var token = localStorage.getItem('eduToken');
-        if(token) {
-          access =true;
-        }else {
+        let access;
+        const token = localStorage.getItem('eduToken');
+        if (token) {
+          access = true;
+        } else {
           access = false;
         }
         return access;
+  }
+
+  getToken() {
+    return localStorage.getItem('eduToken');
   }
 }

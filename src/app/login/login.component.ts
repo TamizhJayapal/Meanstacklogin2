@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginUser(userCred) {
     this.userservice.loginUser(userCred).subscribe((res: any) => {
      if (res) {
-        localStorage.setItem('eduToken',res.token);
+        localStorage.setItem('eduToken', res.token);
         this.router.navigate(['/tutoapp']);
      }
     });
