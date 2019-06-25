@@ -12,6 +12,7 @@ import { TutoappComponent } from './tutoapp/tutoapp.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { Globaldata } from './globaldata';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HttpClientModule,
     NgbModule.forRoot()
   ],
-  providers: [UserService, {
+  providers: [UserService, Globaldata,  {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true

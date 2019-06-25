@@ -1,7 +1,7 @@
 <div class="row" id="top-menu">
     <div class="col-sm-12 container-fluid">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-        <a class="navbar-brand"  *ngIf = "authservice.currentUserValue()" href="#">Welcome User!</a>  
+        <a class="navbar-brand"  *ngIf = "authservice.currentUserValue()" href="#">Welcome {{username}}!</a>  
         <a class="navbar-brand"  *ngIf = "!authservice.currentUserValue()" href="#">Edu-Revole</a>   
         <div class="collapse navbar-collapse" id="tuto-nav"> </div>    
         <ul class="nav navbar-nav ">
