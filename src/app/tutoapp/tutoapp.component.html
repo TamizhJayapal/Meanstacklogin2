@@ -1,3 +1,15 @@
+<div class="row" id="top-menu" *ngIf = "authservice.currentUserValue()">
+  <div class="col-sm-12 container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light newbg">
+      <a class="navbar-brand" href="#">Welcome {{username}}!</a> 
+      <div class="collapse navbar-collapse" id="tuto-nav"> </div>    
+      <ul class="nav navbar-nav " style="cursor:pointer">
+        <li class="nav-item" ><a class="nav-link"><i class="fas fa-cog"></i></a></li>
+        <li class="nav-item" ><a class="nav-link" (click) = "logout()"><i class="fas fa-sign-out-alt"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
 <div class="row row-content" >
   <div class="col-sm-2 sidenav">
     <a href="#about" routerLink ="/tutoapp/profile" ><i class="fas fa-home"></i>Profile</a>

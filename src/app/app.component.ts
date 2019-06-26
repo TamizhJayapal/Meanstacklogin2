@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthendicationService } from './services/authendication.service';
-import { Globaldata } from './globaldata';
+
 
 @Component({
   selector: 'app-root',
@@ -8,16 +8,8 @@ import { Globaldata } from './globaldata';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private authservice: AuthendicationService, private global: Globaldata) {}
+  constructor(private authservice: AuthendicationService) {}
   title = 'EduOrg';
-  username: any;
-  ngOnInit() { 
-    this.username = this.global.userName;
+  ngOnInit() {
    }
-
-  logout() {
-    localStorage.removeItem('eduToken');
-    location.reload();
-  }
-
 }

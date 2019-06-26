@@ -9,14 +9,14 @@ import { Globaldata } from '../globaldata';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private userservice: UserService, private router: Router, private global:Globaldata) {}
+  constructor(private userservice: UserService, private router: Router, private global: Globaldata) {}
 
   loginUser(userCred) {
     this.userservice.loginUser(userCred).subscribe((res: any) => {
      if (res) {
         localStorage.setItem('eduToken', res.token);
         this.router.navigate(['/tutoapp']);
-        this.global.userName = res.token;
+        this.global.userName = res.name;
      }
     });
   }
