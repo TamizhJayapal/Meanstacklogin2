@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { Globaldata } from '../globaldata';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +9,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private userservice: UserService, 
-      private router: Router, 
-      private global: Globaldata,
-      private toastr: ToastrService) {}
+  constructor(private userservice: UserService,
+              private router: Router,
+              private global: Globaldata) {}
 
   loginUser(userCred) {
     this.userservice.loginUser(userCred).subscribe((res: any) => {
@@ -21,12 +19,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('eduToken', res.token);
         this.router.navigate(['/tutoapp']);
         this.global.userName = res.name;
-        this.toastMessage("success");
      }
     });
-  }
-  toastMessage(message) {
-      this.toastr.success(message);
   }
   ngOnInit() { }
 }

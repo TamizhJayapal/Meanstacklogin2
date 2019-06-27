@@ -12,8 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { TutoappComponent } from './tutoapp/tutoapp.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
-import { TokenInterceptorService } from './services/token-interceptor.service';
 import { Globaldata } from './globaldata';
+import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,13 +30,14 @@ import { Globaldata } from './globaldata';
     HttpClientModule,
     NgbModule.forRoot(),
     ToastrModule.forRoot({
+      timeOut: 0,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     })
   ],
-  providers: [UserService, Globaldata,  {
+  providers: [UserService, Globaldata, {
     provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
+    useClass: HttpCongfigInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]
