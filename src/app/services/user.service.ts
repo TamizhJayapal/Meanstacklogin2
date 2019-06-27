@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map} from 'rxjs/operators';
 
 @Injectable({
@@ -12,13 +12,18 @@ export class UserService {
   registerUser(user) {
     return this.http.post(this.url + '/register', user).pipe(map((res) => {
       return res;
+    },
+    (error) => {
+      console.log(error);
     }));
   }
 
   loginUser(userCred) {
     return this.http.post(this.url + '/login', userCred).pipe(map((res) => {
         return res;
-      })
-    );
+      },
+      (error) => {
+        console.log(error);
+      }));
   }
 }

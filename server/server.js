@@ -28,7 +28,7 @@ app.post('/register', (req,res)=>{
 
 app.post('/login', (req,res)=>{
     let userData = req.body;
-    user.findOne({email: userData.email}, (error, user) => {
+    user.findOne({email: userData.email}, (error, user) => {      
         if(!user){
           return res.status(401).send('Email does not exist');
         }

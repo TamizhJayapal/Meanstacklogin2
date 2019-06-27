@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { UserService } from './services/user.service';
@@ -28,9 +29,10 @@ import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot(),
     ToastrModule.forRoot({
-      timeOut: 0,
+      timeOut: 5000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     })

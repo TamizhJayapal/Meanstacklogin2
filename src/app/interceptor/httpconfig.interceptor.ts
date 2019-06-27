@@ -39,7 +39,7 @@ export class HttpCongfigInterceptor implements HttpInterceptor {
                                             };
                                             console.log(data);
                                             this.errordialog.alertError(data);
-                                            return throwError(error);
+                                            return throwError(error.status);
                                         }));
     }
 }
