@@ -31,15 +31,16 @@ export class HttpCongfigInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(map((event: HttpEvent<any>) => {
                                             return event; }),
                                          catchError((error: HttpErrorResponse) => {
-                                            let data = {};
-                                            data = {
+                                            console.log(error.error);
+                                            let errData = {};
+                                            errData = {
                                                 reason: error && error.error.reason ? error.error.reason : '',
-                                                message: error.error,
+                                                message: error.error.errors.message,
                                                 status: error.status
                                             };
-                                            console.log(data);
-                                            this.errordialog.alertError(data);
-                                            return throwError(error.status);
+                                            console.log(errData);
+                                            this.errordialog.alertError(errData);
+                                            return throwError(error);
                                         }));
     }
 }

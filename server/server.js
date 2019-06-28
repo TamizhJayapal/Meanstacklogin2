@@ -30,7 +30,11 @@ app.post('/login', (req,res)=>{
     let userData = req.body;
     user.findOne({email: userData.email}, (error, user) => {      
         if(!user){
-          return res.status(401).send('Email does not exist');
+          return res.status(401).send({
+            errors: {
+                message:'Email does not exist'
+            }
+        });
         }
         bcrypt.compare(req.body.password, user.password).then(function(data) {            
             if(data){                             
@@ -40,7 +44,11 @@ app.post('/login', (req,res)=>{
                      token:user.tokens.token
                  });
             }else {
-                 res.status(401).send('Invalid password');
+                 res.status(401).send({
+                     errors: {
+                         message:'Invalid password'
+                     }
+                 });
             }
         });        
     });

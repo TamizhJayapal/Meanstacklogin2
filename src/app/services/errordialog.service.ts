@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ErrordialogService {
 
   constructor(private toastr: ToastrService) { }
-  alertError(data) {
-    this.toastr.error(data.message);
+  alertError(error) {
+    this.toastr.error(error.message);
   }
 }
