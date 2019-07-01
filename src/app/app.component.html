@@ -1,13 +1,25 @@
+
+
 <div class="row" id="top-menu" *ngIf = "!authservice.currentUserValue()">
     <div class="col-sm-12 container-fluid">
-      <nav class="navbar navbar-expand-md navbar-light newbg">
+
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+
         <a class="navbar-brand" href="#">Edu-Revole</a> 
-        <div class="collapse navbar-collapse" id="tuto-nav"> </div>
-        <ul class="nav navbar-nav " style="cursor:pointer">
-          <li class="nav-item" ><a routerLink ="/login" class="nav-link">LogIn</a></li>
-          <li class="nav-item" ><a routerLink ="/register" class="nav-link" >Register</a></li>
-        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target ="#menu-list" aria-controls="menu-list" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>  
+        </button>
+                    
+        <div class="collapse navbar-collapse" id="menu-list">
+            <ul class="nav navbar-nav " style="cursor:pointer">
+              <li class="nav-item" ><a routerLink ="/login" class="nav-link">LogIn</a></li>
+              <li class="nav-item" ><a routerLink ="/register" class="nav-link" >Register</a></li>
+            </ul>
+        </div>
       </nav>
+
+
     </div>
   </div>
 
