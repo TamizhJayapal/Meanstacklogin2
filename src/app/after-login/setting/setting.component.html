@@ -1,3 +1,54 @@
-<p>
-  setting works!
-</p>
+
+  <div id="contact" class="paddsection">
+    <div class="container">
+      <div class="contact-block1">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="contact-contact">
+              <h2 class="mb-30">GET IN TOUCH</h2>
+              <ul class="contact-details">
+                <li><span>23 Main, Street</span></li>
+                <li><span>Thirumangalam, Madurai</span></li>
+                <li><span>+91 96865465252</span></li>
+                <li><span>neferro@gmail.com</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <form id="feedform" class="contactForm" #feedForm = "ngForm" (ngSubmit)="feedback(feedForm.value);">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group contact-block1">
+                    <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input type="email" ngModel class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <input type="text" ngModel  class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <textarea class="form-control" ngModel name="message" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <input type="submit" class="btn btn-defeault btn-send" value="Send message">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

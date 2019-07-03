@@ -18,6 +18,15 @@ export class UserService {
     }));
   }
 
+  saveFeedback(feedData) {
+    return this.http.post(this.url + '/feed', feedData).pipe(map((res) => {
+      return res;
+    },
+    (error) => {
+      console.log(error);
+    }));
+  }
+
   loginUser(userCred) {
     return this.http.post(this.url + '/login', userCred).pipe(map((res) => {
         return res;

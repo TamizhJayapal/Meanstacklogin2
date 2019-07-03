@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { FormsModule} from '@angular/forms';
+
 import { ProfileComponent } from './profile/profile.component';
 import { StaffsComponent } from './staffs/staffs.component';
 import { StudentsComponent } from './students/students.component';
@@ -17,7 +19,7 @@ const approute: Routes = [
 ];
 
 @NgModule({
-imports: [RouterModule.forChild(approute)],
+imports: [RouterModule.forChild(approute), FormsModule],
 exports: [RouterModule],
 declarations: [
     ProfileComponent,

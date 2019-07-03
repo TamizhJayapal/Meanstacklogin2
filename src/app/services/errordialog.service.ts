@@ -10,4 +10,7 @@ export class ErrordialogService {
   alertError(error) {
     this.toastr.error(error.message);
   }
+  alertSuccess(msg) {
+    this.toastr.success(msg);
+  }
 }

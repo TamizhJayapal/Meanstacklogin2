@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 
 const mongoose = require('./mongodb/mongoose');
 const user = require('./model/user');
+const feed = require('./model/feed');
 
 const port = process.env.PORT ? process.env.PORT : 3000;
 
@@ -21,6 +22,21 @@ app.post('/register', (req,res)=>{
     var userdata = new user(newUser);
     userdata.saveWithToken().then((x)=>{       
             res.send({token: x.tokens});
+        }).catch((e)=>{
+            res.status(400).send(e);
+    })
+}); 
+
+app.post('/feed', (req,res)=>{    
+    var newfeed = {
+        name:req.body.name,
+        email:req.body.email,
+        subject:req.body.subject,
+        message:req.body.message
+    }
+    var userfeed = new feed(newfeed);
+    userfeed.save().then((x)=>{       
+            res.send(x);
         }).catch((e)=>{
             res.status(400).send(e);
     })
