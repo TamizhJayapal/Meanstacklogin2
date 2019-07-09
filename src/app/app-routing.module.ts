@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { TutoappComponent } from './tutoapp/tutoapp.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminComponent } from './Admin/admin/admin.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
+  },
+  {
+    path: 'eduwork/Admin', component: AdminComponent
   },
   {
     path: 'register', component: RegisterComponent

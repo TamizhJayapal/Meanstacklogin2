@@ -15,6 +15,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { Globaldata } from './globaldata';
 import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
+import { AdminComponent } from './Admin/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
     LoginComponent,
     TutoappComponent,
     PagenotfoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
