@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule} from '@angular/forms';
+
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -16,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { Globaldata } from './globaldata';
 import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { AdminComponent } from './Admin/admin/admin.component';
+import { ForadminworkComponent } from './foradminwork/foradminwork.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { AdminComponent } from './Admin/admin/admin.component';
     TutoappComponent,
     PagenotfoundComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    ForadminworkComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -39,7 +43,7 @@ import { AdminComponent } from './Admin/admin/admin.component';
       preventDuplicates: true
     })
   ],
-  providers: [UserService, Globaldata, {
+  providers: [UserService, Globaldata, ReactiveFormsModule, {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpCongfigInterceptor,
     multi: true

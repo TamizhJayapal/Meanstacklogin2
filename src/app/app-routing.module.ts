@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LoginComponent } from './login/login.component';
 import { TutoappComponent } from './tutoapp/tutoapp.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './Admin/admin/admin.component';
+import { ForadminworkComponent } from './foradminwork/foradminwork.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -15,10 +17,13 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
+    path: 'register', component: RegisterComponent
+  },
+  {
     path: 'eduwork/Admin', component: AdminComponent
   },
   {
-    path: 'register', component: RegisterComponent
+    path: 'forAdmin', component: ForadminworkComponent
   },
   {
     path: 'tutoapp' , component: TutoappComponent, loadChildren: './after-login/afterlogin.module#AfterLoginModule',
