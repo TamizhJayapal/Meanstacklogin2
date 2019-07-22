@@ -5,8 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { TutoappComponent } from './tutoapp/tutoapp.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
-import { AdminComponent } from './Admin/admin/admin.component';
-import { ForadminworkComponent } from './foradminwork/foradminwork.component';
+import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
+import { AdminprofileComponent } from './Admin/adminprofile/adminprofile.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -20,13 +20,18 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent
   },
   {
-    path: 'eduwork/Admin', component: AdminComponent
+    path: 'adminlogin',
+    component: AdminloginComponent,
   },
   {
-    path: 'forAdmin', component: ForadminworkComponent
+    path: 'adminprofile',
+    component: AdminprofileComponent,
+    loadChildren: './Admin/after-admin-login/after-admin-login.module#AfterAdminLoginModule'
   },
   {
-    path: 'tutoapp' , component: TutoappComponent, loadChildren: './after-login/afterlogin.module#AfterLoginModule',
+    path: 'tutoapp' ,
+    component: TutoappComponent,
+    loadChildren: './after-login/afterlogin.module#AfterLoginModule',
     canActivate: [AuthGuard]
   },
   {

@@ -12,12 +12,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { LoginComponent } from './login/login.component';
 import { TutoappComponent } from './tutoapp/tutoapp.component';
+import { AdminprofileComponent } from './Admin/adminprofile/adminprofile.component';
+
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { Globaldata } from './globaldata';
 import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
-import { AdminComponent } from './Admin/admin/admin.component';
-import { ForadminworkComponent } from './foradminwork/foradminwork.component';
+import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,8 @@ import { ForadminworkComponent } from './foradminwork/foradminwork.component';
     TutoappComponent,
     PagenotfoundComponent,
     RegisterComponent,
-    AdminComponent,
-    ForadminworkComponent
+    AdminprofileComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
