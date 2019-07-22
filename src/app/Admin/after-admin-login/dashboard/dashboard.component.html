@@ -21,45 +21,54 @@
           <td> Image not Available   </td>
           <td><button> Edit</button> <button> Del</button> <button> Add</button> </td>
       </tr>
-      <tr>
-          <td> #4251300 </td>
-          <td> Ear Phone </td>
-          <td> Mobile </td>
-          <td> 699 </td>
-          <td> 45  </td>
-          <td> Image not Available   </td>
-          <td><button> Edit</button> <button> Del</button> <button (click) = "addPhone()"> Add</button> </td>
-      </tr>
-      <tr>
-        <td> 
-                <input style="width: 90px" placeholder="productid" fromControl = "productid">
-           
-        </td>
-        <td>
-                <input style="width: 90px"  placeholder="productname" fromControl = "productname">
-           
-       </td>
-        <td> 
-                <input style="width: 90px"  placeholder="productcatogary" fromControl = "productcatogary">
-            
-        </td>
-        <td>
-                <input style="width: 90px"  placeholder="productprice" fromControl = "productprice">
-          
-        </td>
-        <td>
-                <input style="width: 90px"  placeholder="producttax" fromControl = "producttax">
-        </td>
-        <td> Image not Available   </td>
-        <td><button> Edit</button> <button> Del</button> <button (click) = "addPhone()"> Add</button> </td>
-      </tr>
     </tbody>
   </table>
 
 
 </div>
 
-
+<div>
+  <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add</button>
+  <div class="modal" id="addModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">
+            Add Product
+          </h4>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup] = "addProduct" (submit) = "productAdd();">
+              <div class="form-group">
+                <label for="product-name">Product Name</label>
+                <input type="text" formControlName="productName" >
+              </div>
+              <div class="form-group">
+                <label for="product-catogary">Product Catogary</label>
+                <input type="text" formControlName="productCatogary" >
+              </div>
+              <div class="form-group">
+                <label for="product-price">Product price</label>
+                <input type="text" formControlName="productPrice" >
+              </div>
+              <div class="form-group">
+                <label for="product-tax">Product Tax</label>
+                <input type="text" formControlName="productTax" >
+              </div>
+             <!--  <div class="form-group">
+                <label for="product-image">Product Image</label>
+                <input type="file" formControlName="productImage">
+              </div> -->
+              <div class="form-group">
+                <button type="submit">save</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
