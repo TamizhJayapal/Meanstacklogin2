@@ -13,18 +13,16 @@
     </thead>
     <tbody>
       <tr>
-          <td> #4251300 </td>
-          <td> Ear Phone </td>
-          <td> Mobile </td>
-          <td> 699 </td>
-          <td> 45  </td>
-          <td> Image not Available   </td>
-          <td><button> Edit</button> <button> Del</button> <button> Add</button> </td>
+        <td> #4251300 </td>
+        <td> Ear Phone </td>
+        <td> Mobile </td>
+        <td> 699 </td>
+        <td> 45  </td>
+        <td> Image not Available   </td>
+        <td><button> Edit</button> <button> Del</button> <button> Add</button> </td>
       </tr>
     </tbody>
   </table>
-
-
 </div>
 
 <div>
@@ -40,22 +38,27 @@
         </div>
         <div class="modal-body">
             <form [formGroup] = "addProduct" (submit) = "productAdd();">
+                
               <div class="form-group">
                 <label for="product-name">Product Name</label>
                 <input type="text" formControlName="productName" >
               </div>
+
               <div class="form-group">
                 <label for="product-catogary">Product Catogary</label>
                 <input type="text" formControlName="productCatogary" >
               </div>
+
               <div class="form-group">
                 <label for="product-price">Product price</label>
                 <input type="text" formControlName="productPrice" >
               </div>
+
               <div class="form-group">
                 <label for="product-tax">Product Tax</label>
                 <input type="text" formControlName="productTax" >
               </div>
+
              <!--  <div class="form-group">
                 <label for="product-image">Product Image</label>
                 <input type="file" formControlName="productImage">

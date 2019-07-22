@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,
-        FormGroup,
-        FormControl
-
+        FormGroup
 } from '@angular/forms';
 
 @Component({
@@ -13,15 +11,17 @@ import {FormBuilder,
 export class DashboardComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
+
   addProduct: FormGroup;
+
   ngOnInit() {
     this.addProduct = this.fb.group({
-      ProductName: new FormControl(),
-      ProductCatogary: new FormControl(),
-      ProductPrice: new FormControl(),
-      ProductTax : new FormControl()
-     // ProductImage : new FormControl('')
+      productName: '',
+      productCatogary: '',
+      productPrice: '',
+      productTax : ''
     });
+   // this.addProduct.valueChanges.subscribe(console.log);
   }
   productAdd() {
     console.log(this.addProduct.value);
