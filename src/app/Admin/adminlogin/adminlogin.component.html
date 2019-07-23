@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div style="border:1px solid red">
-      <form #adminuser = "ngForm" (submit) = "adminlogin(adminuser.value);">
+      <form #adminuser = "ngForm" (submit) = "adminlogin(adminuser.value)">
         <div class="formgroup">
              <label for="email">Email</label>
-             <input class="form-control" type="email" name="adminemail">
+             <input class="form-control" type="email" name="adminemail" ngModel>
         </div>
         <div class="formgroup">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="adminpassword">
+            <input class="form-control" type="password" name="adminpassword" ngModel>
         </div>
         <button type="submit" style="width:100%" class="btn btn-primary"><a>submit</a></button>
       </form>

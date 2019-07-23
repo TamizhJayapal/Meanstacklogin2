@@ -6,12 +6,29 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('./mongodb/mongoose');
 const user = require('./model/user');
 const feed = require('./model/feed');
+const product = require('./model/admin/saveProduct');
 
 const port = process.env.PORT ? process.env.PORT : 3000;
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
+app.post('/addProduct', (req, res)=>{
+    var createproduct = {
+        productid: 1,
+        productname: req.body.productName,
+        productcatogary: req.body.productCatogary,
+        productprice: req.body.productPrice,
+        producttax: req.body.productTax
+    }
+    var newproduct = new product(createproduct);
+    newproduct.save().then((x)=>{
+        res.status(200).send(x);
+    }).then((e)=>{
+        res.status(400).send(e);
+    });
+});
 
 app.post('/register', (req,res)=>{    
     var newUser = {

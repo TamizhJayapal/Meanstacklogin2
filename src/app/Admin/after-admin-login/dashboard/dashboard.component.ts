@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder,
-        FormGroup
-} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AdminService } from '../../Services/admin.service';
+import { ErrordialogService } from '../../../services/errordialog.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +9,13 @@ import {FormBuilder,
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild('closebutton') closebutton;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private adminservise: AdminService,
+              private errordia: ErrordialogService) { }
 
   addProduct: FormGroup;
-
   ngOnInit() {
     this.addProduct = this.fb.group({
       productName: '',
@@ -21,9 +23,14 @@ export class DashboardComponent implements OnInit {
       productPrice: '',
       productTax : ''
     });
-   // this.addProduct.valueChanges.subscribe(console.log);
   }
+
   productAdd() {
-    console.log(this.addProduct.value);
+    this.adminservise.saveProduct(this.addProduct.value).subscribe((res: any) => {
+      if (res) {
+        this.closebutton.nativeElement.click();
+        this.errordia.alertSuccess('Added Successfully');
+      }
+    });
   }
 }

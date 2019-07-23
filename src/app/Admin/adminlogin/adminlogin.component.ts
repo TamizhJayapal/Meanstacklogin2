@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ErrordialogService } from '../../services/errordialog.service';
 
 @Component({
   selector: 'app-adminlogin',
@@ -8,12 +9,16 @@ import { Router } from '@angular/router';
 })
 export class AdminloginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private errordia: ErrordialogService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   adminlogin(data) {
-    console.log(data);
-    this.router.navigate(['/adminprofile']);
+    if (data.adminemail === 'ajtam@g.com' && data.adminpassword === '1234') {
+      this.router.navigate(['/adminprofile']);
+    } else {
+      this.errordia.alertError({message: 'Invalid credentials'});
+    }
   }
 }
