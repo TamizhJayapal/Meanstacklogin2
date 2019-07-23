@@ -33,7 +33,7 @@ var counter = mongoose.model('counter', CounterSchema);
 
 productAddSchema.pre('save', function(next) {
     var doc = this;
-    counter.findOneAndUpdate({_id: 'entityId'}, {$inc: { seq: 1} }, function(error, counter)   {
+    counter.findAndModify({_id: 'entityId'}, {$inc: { seq: 1} }, {new: true},function(error, counter)   {
         console.log(counter);
         next();
     });
