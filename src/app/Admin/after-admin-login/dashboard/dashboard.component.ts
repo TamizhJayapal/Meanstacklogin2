@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild('closebutton') closebutton;
 
   constructor(private fb: FormBuilder,
               private adminservise: AdminService,
@@ -28,7 +27,6 @@ export class DashboardComponent implements OnInit {
   productAdd() {
     this.adminservise.saveProduct(this.addProduct.value).subscribe((res: any) => {
       if (res) {
-        this.closebutton.nativeElement.click();
         this.errordia.alertSuccess('Added Successfully');
       }
     });

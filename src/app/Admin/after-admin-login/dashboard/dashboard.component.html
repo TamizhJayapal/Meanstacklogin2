@@ -1,82 +1,64 @@
-<div class="container mt-2">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th> Product Id </th>
-        <th> Product Name </th>
-        <th> Product Catogary </th>
-        <th> Product Price </th>
-        <th> Product Tax </th>
-        <th> Product Image </th>
-        <th> Action  </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td> #4251300 </td>
-        <td> Ear Phone </td>
-        <td> Mobile </td>
-        <td> 699 </td>
-        <td> 45  </td>
-        <td> Image not Available   </td>
-        <td><button> Edit</button> <button> Del</button> <button> Add</button> </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div>
-  <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add</button>
-  <div class="modal" id="addModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">
-            Add Product
-          </h4>
-          <button class="close" data-dismiss="modal" #closebutton>&times;</button>
-        </div>
-        <div class="modal-body">
-            <form [formGroup] = "addProduct" (submit) = "productAdd();">
-                
-              <div class="form-group">
-                <label for="product-name">Product Name</label>
-                <input type="text" formControlName="productName" >
-              </div>
-
-              <div class="form-group">
-                <label for="product-catogary">Product Catogary</label>
-                <input type="text" formControlName="productCatogary" >
-              </div>
-
-              <div class="form-group">
-                <label for="product-price">Product price</label>
-                <input type="text" formControlName="productPrice" >
-              </div>
-
-              <div class="form-group">
-                <label for="product-tax">Product Tax</label>
-                <input type="text" formControlName="productTax" >
-              </div>
-
-             <!--  <div class="form-group">
-                <label for="product-image">Product Image</label>
-                <input type="file" formControlName="productImage">
-              </div> -->
-              <div class="form-group">
-                <button type="submit">save</button>
-              </div>
-            </form>
-        </div>
-      </div>
+<div class="container mt-2" style="padding:0">
+  <div class="row"> 
+    <div class="col-md-9 col-lg-9">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th> Product Id </th>
+            <th> Product Name </th>
+            <th> Product Catogary </th>
+            <th> Product Price </th>
+            <th> Product Tax </th>
+            <th> Product Image </th>
+            <th> Action  </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> #4251300 </td>
+            <td> Ear Phone </td>
+            <td> Mobile </td>
+            <td> 699 </td>
+            <td> 45  </td>
+            <td> Image not Available   </td>
+            <td><button> Edit</button> <button> Del</button> </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+    <div class="col-md-3 col-lg-3">
+      <h4 class="text-center">Add product</h4>
+        <form [formGroup] = "addProduct" (submit) = "productAdd();" #productForm>
+                
+            <div class="form-group">
+              <label for="product-name">Product Name</label>
+              <input class="form-control" type="text" formControlName="productName" >
+            </div>
+
+            <div class="form-group">
+              <label for="product-catogary">Product Catogary</label>
+              <input class="form-control" type="text" formControlName="productCatogary" >
+            </div>
+
+            <div class="form-group">
+              <label for="product-price">Product price</label>
+              <input class="form-control" type="text" formControlName="productPrice" >
+            </div>
+
+            <div class="form-group">
+              <label for="product-tax">Product Tax</label>
+              <input class="form-control" type="text" formControlName="productTax" >
+            </div>
+
+           <!--  <div class="form-group">
+              <label for="product-image">Product Image</label>
+              <input type="file" formControlName="productImage">
+            </div> -->
+            
+            <div class="form-group">
+              <button class="form-control btn btn-primary" type="submit">save</button>
+            </div>
+          </form>
+    </div>
+  </div> 
 </div>
-
-
-
-
-
-  
-  
- 

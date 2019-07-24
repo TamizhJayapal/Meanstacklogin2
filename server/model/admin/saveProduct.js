@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const sequenceId = require('../sequence_id');
 const Schema = mongoose.Schema;
 
 const productAddSchema = new Schema({
@@ -24,21 +25,16 @@ const productAddSchema = new Schema({
     }
 });
 
-/* var CounterSchema = Schema({
-    _id: {type: String},
-    seq: { type: Number}
-});
-var counter = mongoose.model('counter', CounterSchema);
-
 
 productAddSchema.pre('save', function(next) {
     var doc = this;
-    counter.findAndModify({_id: 'entityId'}, {$inc: { seq: 1} }, {new: true},function(error, counter)   {
-        console.log(counter);
+    sequenceId.findByIdAndUpdate({_id: 'product_id'},{$inc: { seq: 1}},{"upsert": true,"new": true  }, function(error, counter)   {
+        if(error)
+            return next(error);
+        doc.productid = counter.seq;
         next();
     });
-}); */
-
+});
 
 const productAdd = mongoose.model("product", productAddSchema);
 
