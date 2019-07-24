@@ -8,13 +8,20 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
+  @ViewChild('productForm') FormValues;
+  productName: any;
+  productCatogary: any;
+  productPrice: any;
+  productTax: any;
 
   constructor(private fb: FormBuilder,
               private adminservise: AdminService,
               private errordia: ErrordialogService) { }
 
   addProduct: FormGroup;
+  productDetails: any = [];
   ngOnInit() {
     this.addProduct = this.fb.group({
       productName: '',
@@ -22,12 +29,22 @@ export class DashboardComponent implements OnInit {
       productPrice: '',
       productTax : ''
     });
+    this.getProductDetails();
+  }
+
+  getProductDetails() {
+    this.adminservise.getProduct().subscribe((res: any) => {
+      if (res) {
+        this.productDetails = res;
+      }
+    });
   }
 
   productAdd() {
     this.adminservise.saveProduct(this.addProduct.value).subscribe((res: any) => {
       if (res) {
         this.errordia.alertSuccess('Added Successfully');
+        this.FormValues.resetForm();
       }
     });
   }

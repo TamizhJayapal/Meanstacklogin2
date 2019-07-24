@@ -20,8 +20,7 @@ export class SettingComponent implements OnInit {
   constructor(private userservice: UserService,
               private errdialog: ErrordialogService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   feedback(feedData) {
     this.userservice.saveFeedback(feedData).subscribe((res: any) => {

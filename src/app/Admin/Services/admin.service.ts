@@ -18,4 +18,12 @@ export class AdminService {
     }));
   }
 
+  getProduct() {
+    return this.http.get(this.url + '/getProduct').pipe(map((res: any) => {
+      return res;
+    }, (error) => {
+      console.log(error);
+    }));
+  }
+
 }

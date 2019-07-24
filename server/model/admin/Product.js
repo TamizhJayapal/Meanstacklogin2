@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const sequenceId = require('../sequence_id');
 const Schema = mongoose.Schema;
 
-const productAddSchema = new Schema({
+const product = new Schema({
     productid: {
         type: Number,
         required: true
@@ -25,8 +25,7 @@ const productAddSchema = new Schema({
     }
 });
 
-
-productAddSchema.pre('save', function(next) {
+product.pre('save', function(next) {
     var doc = this;
     sequenceId.findByIdAndUpdate({_id: 'product_id'},{$inc: { seq: 1}},{"upsert": true,"new": true  }, function(error, counter)   {
         if(error)
@@ -36,6 +35,6 @@ productAddSchema.pre('save', function(next) {
     });
 });
 
-const productAdd = mongoose.model("product", productAddSchema);
+const productModel = mongoose.model("product", product);
 
-module.exports = productAdd;
+module.exports = productModel;
