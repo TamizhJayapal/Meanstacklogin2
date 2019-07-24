@@ -21,7 +21,15 @@ export class DashboardComponent implements OnInit {
               private errordia: ErrordialogService) { }
 
   addProduct: FormGroup;
-  productDetails: any = [];
+  productDetails: any[] = [];
+  policies: any[] = [
+    {id: 0, name: 'policy001'},
+    {id: 2, name: 'policy002'},
+    {id: 3, name: 'policy003'},
+    {id: 4, name: 'policy004'},
+    {id: 5, name: 'policy005'}
+   ];
+
   ngOnInit() {
     this.addProduct = this.fb.group({
       productName: '',
@@ -36,6 +44,8 @@ export class DashboardComponent implements OnInit {
     this.adminservise.getProduct().subscribe((res: any) => {
       if (res) {
         this.productDetails = res;
+        console.log(this.productDetails);
+        console.log(this.policies);
       }
     });
   }
