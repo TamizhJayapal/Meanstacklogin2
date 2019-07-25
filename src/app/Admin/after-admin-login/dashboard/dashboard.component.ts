@@ -47,6 +47,11 @@ export class DashboardComponent implements OnInit {
   }
 
   productAdd() {
+    if (this.addProduct.value._id) {
+      this.adminservise.updateProduct(this.addProduct.value).subscribe((res: any) => {
+        console.log(res);
+      });
+    } else {
     this.adminservise.saveProduct(this.addProduct.value).subscribe((res: any) => {
       if (res) {
         this.productDetails.push(res);
@@ -54,10 +59,12 @@ export class DashboardComponent implements OnInit {
         this.FormValues.resetForm();
       }
     });
+
+  }
   }
 
-  productUpdate(i, productDetails) {
-    this.addProduct = this.fb.group(productDetails);
+  productUpdate(i, productValues) {
+    this.addProduct = this.fb.group(productValues);
   }
 
   productDel(i, productid) {

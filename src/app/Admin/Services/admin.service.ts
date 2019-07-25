@@ -18,6 +18,14 @@ export class AdminService {
     }));
   }
 
+  updateProduct(prod) {
+    return this.http.put(this.url + '/updateProduct' + `/${prod._id}`, prod).pipe(map((res: any) => {
+       return res;
+    }, (error) => {
+        console.log(error);
+    }));
+  }
+
   deleteProduct(prodId) {
     return this.http.delete(this.url + '/delProduct' + `/${prodId}`).pipe(map((res: any) => {
       return res;

@@ -26,6 +26,23 @@ app.delete('/delProduct/:id', (req, res) => {
     });
 });
 
+app.put('/updateProduct/:id', (req, res) => {
+    if(!ObjectId.isValid(req.params.id)) {
+        return res.send(400).send('ObjectId does not matched');
+    }
+    var updateProduct = {
+        productId: req.body.productId,
+        productName: req.body.productName,
+        productCatogary: req.body.productCatogary,
+        productPrice: req.body.productPrice,
+        productTax: req.body.productTax
+    }
+    product.findByIdAndUpdate(req.params.id, {$set: updateProduct}, {new: true}).then((data)=>{
+       res.status(200).send(data);
+    }).catch((e)=>{
+        res.status(400).send(e);
+    });
+});
 
 app.get('/getProduct', (req, res)=> {
     product.find().then((x)=>{
