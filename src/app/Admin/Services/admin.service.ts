@@ -18,6 +18,14 @@ export class AdminService {
     }));
   }
 
+  deleteProduct(prodId) {
+    return this.http.delete(this.url + '/delProduct' + `/${prodId}`).pipe(map((res: any) => {
+      return res;
+    }, (error) => {
+      console.log(error);
+    }));
+  }
+
   getProduct() {
     return this.http.get(this.url + '/getProduct').pipe(map((res: any) => {
       return res;

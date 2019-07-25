@@ -3,23 +3,23 @@ const sequenceId = require('../sequence_id');
 const Schema = mongoose.Schema;
 
 const product = new Schema({
-    productid: {
+    productId: {
         type: Number,
         required: true
     },
-    productcatogary: {
+    productName: {
         type: String,
         required: true
     },
-    productname: {
+    productCatogary: {
         type: String,
         required: true
     },
-    productprice: {
+    productPrice: {
         type: Number,
         required:true
     },
-    producttax: {
+    productTax: {
         type: Number,
         required: true
     }
@@ -30,7 +30,7 @@ product.pre('save', function(next) {
     sequenceId.findByIdAndUpdate({_id: 'product_id'},{$inc: { seq: 1}},{"upsert": true,"new": true  }, function(error, counter)   {
         if(error)
             return next(error);
-        doc.productid = counter.seq;
+        doc.productId = counter.seq;
         next();
     });
 });

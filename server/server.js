@@ -7,12 +7,25 @@ const mongoose = require('./mongodb/mongoose');
 const user = require('./model/user');
 const feed = require('./model/feed');
 const product = require('./model/admin/Product');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const port = process.env.PORT ? process.env.PORT : 3000;
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
+app.delete('/delProduct/:id', (req, res) => {
+    if(!ObjectId.isValid(req.params.id)) {
+        return res.send(400).send('ObjectId does not matched');
+    }
+    product.findByIdAndRemove(req.params.id).then((x)=>{
+        res.status(200).send(x);
+    }).catch((e)=>{
+        res.status(400).send(e);
+    });
+});
+
 
 app.get('/getProduct', (req, res)=> {
     product.find().then((x)=>{
@@ -24,11 +37,11 @@ app.get('/getProduct', (req, res)=> {
 
 app.post('/addProduct', (req, res)=>{
     var createproduct = {
-        productid: 1,
-        productname: req.body.productName,
-        productcatogary: req.body.productCatogary,
-        productprice: req.body.productPrice,
-        producttax: req.body.productTax
+        productId: 1,
+        productName: req.body.productName,
+        productCatogary: req.body.productCatogary,
+        productPrice: req.body.productPrice,
+        productTax: req.body.productTax
     }
     var newproduct = new product(createproduct);
     newproduct.save().then((x)=>{

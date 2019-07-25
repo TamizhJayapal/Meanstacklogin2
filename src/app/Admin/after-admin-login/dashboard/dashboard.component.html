@@ -13,17 +13,19 @@
             <th> Action  </th>
           </tr>
         </thead>
-        <tbody>
-          
-          <!-- <tr>
-            <td> #4251300 </td>
-            <td> Ear Phone </td>
-            <td> Mobile </td>
-            <td> 699 </td>
-            <td> 45  </td>
+        <tbody>        
+          <tr *ngFor = 'let product of productDetails; let i = index'>
+            <td> #{{product.productId}} </td>
+            <td> {{product.productName}}</td>
+            <td> {{product.productCatogary}} </td>
+            <td> {{product.productPrice}}</td>
+            <td> {{product.productTax}}</td>
             <td> Image not Available   </td>
-            <td><a class="ml-2" style="cursor: pointer;"><i class="fas fa-edit"></i></a> <a class="ml-2" style="cursor: pointer;"><i class="fas fa-trash"></i></a> </td>
-          </tr> -->
+            <td> 
+              <a class="ml-2" style="cursor: pointer;" (click) = "productUpdate(i, product);"><i class="fas fa-edit"></i></a> 
+              <a class="ml-2" style="cursor: pointer;" (click) = "productDel(i, product._id);"><i class="fas fa-trash"></i></a> 
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

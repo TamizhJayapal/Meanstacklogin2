@@ -22,14 +22,12 @@ export class DashboardComponent implements OnInit {
 
   addProduct: FormGroup;
   productDetails: any[] = [];
-  policies: any[] = [
-    {id: 0, name: 'policy001'},
-    {id: 2, name: 'policy002'},
-    {id: 3, name: 'policy003'},
-    {id: 4, name: 'policy004'},
-    {id: 5, name: 'policy005'}
-   ];
-
+  test = {
+    productName: '',
+    productCatogary: '',
+    productPrice: '',
+    productTax : ''
+  };
   ngOnInit() {
     this.addProduct = this.fb.group({
       productName: '',
@@ -44,8 +42,6 @@ export class DashboardComponent implements OnInit {
     this.adminservise.getProduct().subscribe((res: any) => {
       if (res) {
         this.productDetails = res;
-        console.log(this.productDetails);
-        console.log(this.policies);
       }
     });
   }
@@ -53,8 +49,21 @@ export class DashboardComponent implements OnInit {
   productAdd() {
     this.adminservise.saveProduct(this.addProduct.value).subscribe((res: any) => {
       if (res) {
+        this.productDetails.push(res);
         this.errordia.alertSuccess('Added Successfully');
         this.FormValues.resetForm();
+      }
+    });
+  }
+
+  productUpdate(i, productDetails) {
+    this.addProduct = this.fb.group(productDetails);
+  }
+
+  productDel(i, productid) {
+    this.adminservise.deleteProduct(productid).subscribe((res: any) => {
+      if (res) {
+        this.productDetails.splice(i, 1);
       }
     });
   }
