@@ -22,12 +22,6 @@ export class DashboardComponent implements OnInit {
 
   addProduct: FormGroup;
   productDetails: any[] = [];
-  test = {
-    productName: '',
-    productCatogary: '',
-    productPrice: '',
-    productTax : ''
-  };
   ngOnInit() {
     this.addProduct = this.fb.group({
       productName: '',
@@ -46,21 +40,23 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  productAdd() {
+  onSubmit() {
     if (this.addProduct.value._id) {
       this.adminservise.updateProduct(this.addProduct.value).subscribe((res: any) => {
-        console.log(res);
+        const i = this.productDetails.findIndex(x => x._id === res._id);
+        this.productDetails.splice(i, 1, res);
+        this.errordia.alertSuccess('Update Successfully');
+        this.FormValues.resetForm();
       });
     } else {
-    this.adminservise.saveProduct(this.addProduct.value).subscribe((res: any) => {
-      if (res) {
-        this.productDetails.push(res);
-        this.errordia.alertSuccess('Added Successfully');
-        this.FormValues.resetForm();
-      }
-    });
-
-  }
+      this.adminservise.saveProduct(this.addProduct.value).subscribe((res: any) => {
+        if (res) {
+          this.productDetails.push(res);
+          this.errordia.alertSuccess('Added Successfully');
+          this.FormValues.resetForm();
+        }
+      });
+    }
   }
 
   productUpdate(i, productValues) {
