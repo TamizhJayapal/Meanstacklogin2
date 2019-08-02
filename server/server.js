@@ -7,6 +7,8 @@ const mongoose = require('./mongodb/mongoose');
 const user = require('./model/user');
 const feed = require('./model/feed');
 const product = require('./model/admin/Product');
+const adminApi = require('./controllers/admincontroller');
+
 const ObjectId = require('mongoose').Types.ObjectId;
 
 const port = process.env.PORT ? process.env.PORT : 3000;
@@ -14,6 +16,8 @@ const port = process.env.PORT ? process.env.PORT : 3000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
+// admin route ..................
 
 app.delete('/delProduct/:id', (req, res) => {
     if(!ObjectId.isValid(req.params.id)) {
@@ -67,6 +71,8 @@ app.post('/addProduct', (req, res)=>{
         res.status(400).send(e);
     });
 });
+
+// admin route ..................
 
 app.post('/register', (req,res)=>{    
     var newUser = {

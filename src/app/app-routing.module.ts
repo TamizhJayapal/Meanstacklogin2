@@ -29,7 +29,7 @@ const routes: Routes = [
     loadChildren: './Admin/after-admin-login/after-admin-login.module#AfterAdminLoginModule'
   },
   {
-    path: 'tutoapp' ,
+    path: 'fashion' ,
     component: TutoappComponent,
     loadChildren: './after-login/afterlogin.module#AfterLoginModule',
     canActivate: [AuthGuard]

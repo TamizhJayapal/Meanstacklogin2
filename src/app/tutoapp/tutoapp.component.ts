@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Directive } from '@angular/core';
 import { Globaldata } from '../globaldata';
 import { AuthendicationService } from '../services/authendication.service';
 

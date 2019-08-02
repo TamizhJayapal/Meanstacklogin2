@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     this.userservice.loginUser(userCred).subscribe((res: any) => {
      if (res) {
         localStorage.setItem('eduToken', res.token);
-        this.router.navigate(['/tutoapp']);
+        this.router.navigate(['/fashion']);
         this.global.userName = res.name;
      }
     });

@@ -1,21 +1,37 @@
 <div class="row" id="top-menu" *ngIf = "authservice.currentUserValue()">
   <div class="col-sm-12 container-fluid">
     <nav class="navbar navbar-expand-md navbar-light newbg">
-      <a class="navbar-brand" href="#">Welcome {{username}}!</a> 
-      <div class="collapse navbar-collapse" id="tuto-nav"> </div>    
-      <ul class="nav navbar-nav " style="cursor:pointer">
-        <li class="nav-item" ><a class="nav-link" title="setting"><i class="fas fa-cog"></i></a></li>
-        <li class="nav-item" ><a class="nav-link" (click) = "logout()" title="logout"><i class="fas fa-sign-out-alt"></i></a></li>
+      <a class="navbar-brand" href="#">
+          <img height = "50" width="120" src="../../assets/./images/./fashion-logo.jpg" alt="profile">
+      </a> 
+      <div class="collapse navbar-collapse" id="tuto-nav"> </div>  
+       <ul class="nav navbar-nav" style="cursor:pointer; padding-top: 15px;">
+         <li class="nav-item" ><a class="nav-link" style="padding-top: 15px;"><i class="fas fa-bell"></i></a></li>
+        <!--  <li class="nav-item" ><a class="nav-link" ><span>User Name</span></a></li> -->
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <img height = "35" src="../../assets/./images/./default_profile.png" alt="profile">
+           </a>
+           <div class="dropdown-menu dropdown-menu-right drop-list">
+              <li class="nav-link" ><i class="fas fa-user ml-2"></i><span class="ml-2">Profile</span></li>
+              <li class="nav-link" ><i class="fas fa-cog ml-2"></i><span class="ml-2">Setting</span></li>
+              <li class="nav-link" ><i class="fas fa-list-alt ml-2"></i><span class="ml-2">Orders</span></li>
+              <li class="nav-link" ><i class="fas fa-heart ml-2"></i><span class="ml-2">Wish List</span></li>
+              <li class="nav-link" ><i class="fas fa-credit-card ml-2"></i><span class="ml-2">Rewards</span></li>
+              <li class="nav-link" ><i class="fas fa-comments ml-2"></i><span class="ml-2">chats</span></li>
+              <li class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt ml-2"></i><span class="ml-2">Log out</span></li>
+           </div>
+         </li>
       </ul>
     </nav>
   </div>
 </div>
 <div class="row row-content" >
   <div class="col-sm-2 sidenav sidenav-ligiht bg-light" style="background-color:white !important; padding-top: 5em; padding-left:30px; border-right: 1px solid rgb(180, 225, 226);">
-    <a href="#about" routerLink ="/tutoapp/profile" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-home"></i>Home</a>
-    <a href="#services" routerLink ="/tutoapp/staffs" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-user"></i>About</a>
-    <a href="#clients" routerLink ="/tutoapp/students" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-briefcase"></i>Portfolio</a>
-    <a href="#contact" routerLink ="/tutoapp/setting" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-phone"></i>Contact Us</a>
+    <a href="#about" routerLink ="/fashion/home" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-home"></i>Home</a>
+    <a href="#services" routerLink ="/fashion/staffs" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-user"></i>About</a>
+    <a href="#clients" routerLink ="/fashion/students" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-briefcase"></i>Portfolio</a>
+    <a href="#contact" routerLink ="/fashion/setting" style="color:rgb(112, 105, 105) !important; padding:7px"><i class="fas fa-phone"></i>Contact Us</a>
   </div>
   <div class="col-sm-10">
     <router-outlet></router-outlet>
