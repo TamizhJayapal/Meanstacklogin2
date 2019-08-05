@@ -31,11 +31,10 @@ export class HttpCongfigInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(map((event: HttpEvent<any>) => {
                                             return event; }),
                                          catchError((error: HttpErrorResponse) => {
-                                            console.log(error.error);
                                             let errData = {};
                                             errData = {
                                                 reason: error && error.error.reason ? error.error.reason : '',
-                                                message: error.error.errors.message,
+                                                message: error && error.error.errors ? error.error.errors.message : '',
                                                 status: error.status
                                             };
                                             console.log(errData);

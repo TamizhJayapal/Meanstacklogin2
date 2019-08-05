@@ -84,7 +84,15 @@ app.post('/register', (req,res)=>{
     userdata.saveWithToken().then((x)=>{       
             res.send({token: x.tokens});
         }).catch((e)=>{
-            res.status(400).send(e);
+            if (e.errmsg.includes('email_1 dup')){
+                res.status(400).send({
+                    errors: {
+                        message:'Email already exist!'
+                    }
+                })
+            } else {
+                res.status(400).send(e);
+            }
     })
 }); 
 
