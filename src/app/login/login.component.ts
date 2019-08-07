@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { Globaldata } from '../globaldata';
+import { GlobaldataService } from '../globaldata.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import { Globaldata } from '../globaldata';
 export class LoginComponent implements OnInit {
   constructor(private userservice: UserService,
               private router: Router,
-              private global: Globaldata) {}
+              private global: Globaldata,
+              private globalService: GlobaldataService) {}
 
   loginUser(userCred) {
     this.userservice.loginUser(userCred).subscribe((res: any) => {
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('username', res.name);
         this.router.navigate(['/fashion']);
         this.global.userName = res.name;
+        this.globalService.userData = {name: res.name}
      }
     });
   }
