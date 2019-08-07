@@ -16,6 +16,7 @@ export class TutoappComponent implements OnInit {
   }
   logout() {
     localStorage.removeItem('eduToken');
+    localStorage.removeItem('username');
     location.reload();
   }
 }

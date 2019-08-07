@@ -10,7 +10,6 @@ const product = require('./model/admin/Product');
 const adminApi = require('./controllers/admincontroller');
 
 const ObjectId = require('mongoose').Types.ObjectId;
-
 const port = process.env.PORT ? process.env.PORT : 3000;
 
 const app = express();

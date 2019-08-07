@@ -1,12 +1,22 @@
 <div class="row m-0" id="top-menu" *ngIf = "authservice.currentUserValue()">
   <div class="col-sm-12 container-fluid">
-    <nav class="navbar navbar-expand-md navbar-light newbg">
-      <a class="navbar-brand" href="#">
+    <nav class="navbar navbar-expand-md navbar-light p-0">
+      <a class="navbar-brand" routerLink="/fashion/home">
           <img height = "50" width="120" src="../../assets/./images/./fashion-logo.jpg" alt="profile">
       </a> 
-      <div class="collapse navbar-collapse" id="tuto-nav"> </div>  
-       <ul class="nav navbar-nav" style="cursor:pointer; padding-top: 15px;">
-         <li class="nav-item" ><a class="nav-link" style="padding-top: 15px;"><i class="fas fa-bell"></i></a></li>
+      <form action="" class="navbar-form mt-3 col-6">
+        <div class="form-group input-group">
+          <input type="text" placeholder="Search product here..." class="form-control">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default" style="border: 1px solid #ccc">
+              <span class="fas fa-search"></span>
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="collapse navbar-collapse" id="tuto-nav"> </div> 
+      <ul class="nav navbar-nav" style="cursor:pointer; padding-top: 15px;">
+        <li class="nav-item" ><a class="nav-link" style="padding-top: 15px;"><i class="fas fa-bell"></i></a></li>
         <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <img height = "35" src="../../assets/./images/./default_profile.png" alt="profile">
