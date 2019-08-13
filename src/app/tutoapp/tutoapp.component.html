@@ -16,7 +16,7 @@
       </form>
       <div class="collapse navbar-collapse" id="tuto-nav"> </div> 
       <ul class="nav navbar-nav" style="cursor:pointer; padding-top: 15px;">
-        <li class="nav-item" ><a class="nav-link" style="padding-top: 15px;"><i class="fas fa-bell"></i></a></li>
+        <li class="nav-item" ><a class="nav-link" style="padding-top: 15px;"><span>{{username}}</span></a></li>
         <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <img height = "35" src="../../assets/./images/./default_profile.png" alt="profile">
@@ -31,6 +31,8 @@
               <li class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt ml-2"></i><span class="ml-2">Log out</span></li>
            </div>
          </li>
+         <li class="nav-item" ><a class="nav-link" style="padding-top: 15px;"><i class="fas fa-bell"></i></a></li>
+         <li class="nav-item" ><a class="nav-link" style="padding-top: 15px;"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
     </nav>
   </div>

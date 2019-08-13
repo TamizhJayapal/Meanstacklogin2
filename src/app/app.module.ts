@@ -16,7 +16,6 @@ import { AdminprofileComponent } from './Admin/adminprofile/adminprofile.compone
 
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
-import { Globaldata } from './globaldata';
 import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
 
@@ -44,7 +43,7 @@ import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
       preventDuplicates: true
     })
   ],
-  providers: [UserService, Globaldata, ReactiveFormsModule, {
+  providers: [UserService, ReactiveFormsModule, {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpCongfigInterceptor,
     multi: true

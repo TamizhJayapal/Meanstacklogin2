@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Globaldata } from '../../globaldata';
-
 import { GlobaldataService } from '../../globaldata.service';
 
 
@@ -11,8 +8,7 @@ import { GlobaldataService } from '../../globaldata.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  constructor(private global: Globaldata,
-              private globalService: GlobaldataService) { }
+  constructor(private globalService: GlobaldataService) { }
   username:any;
   ngOnInit() {
     this.username = this.globalService.userData.name;
