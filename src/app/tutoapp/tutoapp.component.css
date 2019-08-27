@@ -1,27 +1,3 @@
-body {
-    font-family: "Lato", sans-serif;
-  }
-  #top-menu {
-      border-bottom: 3px solid #c70039;
-  }
-  .row-content {
-    height: 560px;
-  }
-  .sidenav {
-    height: 100%;
-    overflow-x: hidden;
-    
-  }
-  .sidenav a {
-    padding: 8px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    color: white;
-    display: block;
-  }
-  .sidenav a i {
-    padding-right: 12px;
-}
 .dropdown-toggle:after {
    content: none 
   }

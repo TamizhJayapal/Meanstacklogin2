@@ -18,6 +18,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpCongfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
     PagenotfoundComponent,
     RegisterComponent,
     AdminprofileComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
