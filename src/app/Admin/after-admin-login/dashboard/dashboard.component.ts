@@ -22,6 +22,8 @@ export class DashboardComponent implements OnInit {
 
   addProduct: FormGroup;
   productDetails: any[] = [];
+  selectedFile: File = null;
+  fd = new FormData();
   ngOnInit() {
     this.addProduct = this.fb.group({
       productName: '',
@@ -31,7 +33,12 @@ export class DashboardComponent implements OnInit {
     });
     this.getProductDetails();
   }
-
+  onchangeFile(event) {
+    this.selectedFile = event.target.files[0] as File;
+    console.log(this.selectedFile);
+    this.fd.append('image', this.selectedFile, this.selectedFile.name);
+    console.log(this.fd);
+  }
   getProductDetails() {
     this.adminservise.getProduct().subscribe((res: any) => {
       if (res) {

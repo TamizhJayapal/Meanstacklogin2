@@ -33,13 +33,12 @@
       <h4 class="text-center mt-1">Add product</h4>
         <form [formGroup] = "addProduct" (submit) = "onSubmit();" #productForm="ngForm">
             <div class="form-group">
-              <button type="file" class="btn btn-warning">Choose File</button>
+              <input type="file" name="fileup" id="fileup" (change) = "onchangeFile($event)">           
             </div>  
             <div class="form-group">
               <label for="product-name">Product Name</label>
               <input class="form-control" type="text" formControlName="productName" >
             </div>
-
             <div class="form-group">
               <label for="product-catogary">Product Catogary</label>
               <input class="form-control" type="text" formControlName="productCatogary" >
