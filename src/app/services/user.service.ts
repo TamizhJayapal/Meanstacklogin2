@@ -10,7 +10,7 @@ export class UserService {
   constructor(private http: HttpClient ) { }
 
   registerUser(user) {
-    return this.http.post(this.url + '/register', user).pipe(map((res) => {
+    return this.http.post(this.url + '/user/register', user).pipe(map((res) => {
       return res;
     },
     (error) => {
@@ -28,7 +28,7 @@ export class UserService {
   }
 
   loginUser(userCred) {
-    return this.http.post(this.url + '/login', userCred).pipe(map((res) => {
+    return this.http.post(this.url + '/user/login', userCred).pipe(map((res) => {
         return res;
       },
       (error) => {

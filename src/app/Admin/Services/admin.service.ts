@@ -11,7 +11,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   saveProduct(productData) {
-    return this.http.post(this.url + '/addProduct', productData).pipe(map((res: any) => {
+    return this.http.post(this.url + '/admin/addProduct', productData).pipe(map((res: any) => {
       return res;
     }, (error) => {
       console.log(error);
@@ -19,7 +19,7 @@ export class AdminService {
   }
 
   updateProduct(prod) {
-    return this.http.put(this.url + '/updateProduct' + `/${prod._id}`, prod).pipe(map((res: any) => {
+    return this.http.put(this.url + '/admin/updateProduct' + `/${prod._id}`, prod).pipe(map((res: any) => {
        return res;
     }, (error) => {
         console.log(error);
@@ -27,7 +27,7 @@ export class AdminService {
   }
 
   deleteProduct(prodId) {
-    return this.http.delete(this.url + '/delProduct' + `/${prodId}`).pipe(map((res: any) => {
+    return this.http.delete(this.url + '/admin/delProduct' + `/${prodId}`).pipe(map((res: any) => {
       return res;
     }, (error) => {
       console.log(error);
@@ -35,7 +35,7 @@ export class AdminService {
   }
 
   getProduct() {
-    return this.http.get(this.url + '/getProduct').pipe(map((res: any) => {
+    return this.http.get(this.url + '/admin/getProduct').pipe(map((res: any) => {
       return res;
     }, (error) => {
       console.log(error);
